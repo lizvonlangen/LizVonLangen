@@ -1,0 +1,66 @@
+<style>
+  .header img {
+    float: left;
+    width:  100%;
+    background: #0372B5;
+}
+
+.header h1 {
+  position: relative;
+  color: #034B79; 
+  top: 18px;
+  left: 10px;
+  font-size: 50px;
+  height: 10%;
+  font-family: "Roboto", sans-serif;
+ }
+
+.form{ 
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  top: 18px;
+  font-size: medium; 
+  color: #495056;  
+  padding-bottom: 50%;
+}
+
+.error{ 
+  color: #F26C4F; 
+  font-family: "Roboto", sans-serif;
+  font-size: medium; 
+}
+.center_div{
+    margin: 2%;
+    width: 100%; 
+}
+</style>
+<html>
+    <header>
+      <div class="header jumbotron">  
+        <img src="assets/how-to-get-an-isbn.jpg" alt="logo"/>
+        <h1>ISBN Validator</h1>  
+      </div>
+    </header>
+
+    <body>
+      <div class="container center_div">
+        <div class= "row">
+          <div class="col-sm">
+            <h2>Enter a ISBN-10 or ISBN-13 number to below to determine it's validity</h2>
+          </div>
+        </div> 
+        <form id="isbnValidate" class="form">  
+          <div class="isbn">
+              <input id="isbnNumber" placeholder="ISBN" [formControl]="FormController">
+              <div class="error" *ngIf="FormController.valid">
+                ISBN is valid
+              </div>
+              <div class="error" *ngIf="FormController.hasError('isbn')">
+                  Enter a valid ISBN 
+              </div>
+          </div>
+        </form>
+      </div>
+    </body>
+</html>
+
